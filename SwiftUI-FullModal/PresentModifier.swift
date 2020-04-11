@@ -20,10 +20,9 @@ fileprivate struct FullModal<PresentedView: View>: ViewModifier {
 					content
 				}
 				ZStack {
+					Color.white.edgesIgnoringSafeArea(.all)
 					self.presentedView
 				}
-			.background(Color.white
-			.edgesIgnoringSafeArea(.all))
 				.offset(x: 0, y: self.isPresented ? 0 : self.viewHeight(geometry))
 			}
 		}

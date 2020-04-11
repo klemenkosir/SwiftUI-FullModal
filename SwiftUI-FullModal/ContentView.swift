@@ -21,25 +21,19 @@ struct ContentView: View {
 			}
 			.navigationBarTitle("Some title")
 		}
-		.present($isPresented, view: ContentView2(isPresented: $isPresented))
+		.present($isPresented, view: ModalView(isPresented: $isPresented))
 	}
 }
 
-struct ContentView2: View {
+struct ModalView: View {
 	
 	@Binding var isPresented: Bool
 	
 	var body: some View {
-		ZStack {
-			Color.red.edgesIgnoringSafeArea(.all)
-			NavigationView {
-				Button(action: {
-					self.isPresented.toggle()
-				}) {
-					Text("Dismiss")
-				}
-				.navigationBarTitle("Some title 2")
-			}
+		Button(action: {
+			self.isPresented.toggle()
+		}) {
+			Text("Dismiss")
 		}
 	}
 }

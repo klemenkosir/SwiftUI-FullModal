@@ -30,10 +30,14 @@ struct ModalView: View {
 	@Binding var isPresented: Bool
 	
 	var body: some View {
-		Button(action: {
-			self.isPresented.toggle()
-		}) {
-			Text("Dismiss")
+		ZStack {
+			Color.white
+				.edgesIgnoringSafeArea(.all)
+			Button(action: {
+				self.isPresented.toggle()
+			}) {
+				Text("Dismiss")
+			}
 		}
 	}
 }
